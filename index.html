@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Чистый Код 2025</title>
+    <!-- Подключаем CSS файл -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="bg-code" id="matrix-bg"></div>
+    <div class="scanline"></div>
+
+    <div class="portal-frame" onclick="triggerEffect()">
+        <div class="glitch-text">ВХОД</div>
+    </div>
+
+    <script>
+        // Небольшой скрипт для заполнения фона символами
+        const bg = document.getElementById('matrix-bg');
+        const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*";
+        let content = "";
+        for(let i=0; i<5000; i++) {
+            content += chars[Math.floor(Math.random() * chars.length)];
+            if(i % 100 === 0) content += "\n";
+        }
+        bg.innerText = content;
+
+        function triggerEffect() {
+            document.body.style.backgroundColor = "#00ff41";
+            setTimeout(() => {
+                document.body.style.backgroundColor = "#0a0a0a";
+                alert("Система перегружена!");
+            }, 100);
+        }
+    </script>
+</body>
+</html>
